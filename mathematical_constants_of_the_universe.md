@@ -119,3 +119,68 @@ graph TD
     I[Electromagnetic Interactions]
     end
 ```
+
+Fibonacci Sequence & Golden Ratio (φ)
+Nature's Most Visible Patterns:
+
+
+Flower petals: Lilies (3), Buttercups (5), Daisies (34, 55, 89)
+Seed arrangements: Sunflower heads, Pinecones
+Spiral shells: Nautilus, Snails
+Leaf arrangements (phyllotaxis): Branch spacing around stems
+Animal horns: Ram, Antelope spiral patterns
+Hurricane/Galaxy spiral formations
+Branching patterns: Trees, Rivers, Lightning
+
+
+Pi (π)
+Physical Phenomena:
+
+
+River meanders: The ratio of actual length to straight distance
+Rainbow formations: Circular light refraction
+Ripples in water
+Pupils of eyes
+Natural orbital patterns of planets
+Wave patterns in:
+
+Ocean waves
+Sound propagation
+Light behavior
+Natural vibrations
+
+
+
+
+Euler's Number (e)
+Growth and Decay Patterns:
+
+
+Population growth of bacteria/microorganisms
+Radioactive decay of elements
+Cell division rates
+Rate of cooling/heating in natural systems
+Growth patterns of coral
+Natural chemical reaction rates
+Animal population dynamics in ecosystems
+
+
+Fine Structure Constant (α)
+Atomic/Quantum Level:
+
+
+Spectral lines in natural light
+Atomic transitions in elements
+Chemical bond strengths
+Light absorption in chlorophyll
+Natural nuclear processes
+Quantum effects in photosynthesis
+
+Interesting Cross-Pattern Observations:
+
+DNA molecule: Shows both π and φ in its structure
+Snail shells: Combine Fibonacci spirals with approximations of π
+Plant growth: Often exhibits both e for growth rate and Fibonacci for arrangement
+Light behavior: Involves both π in its wave nature and α in its particle nature
+
+The fascinating aspect is how these patterns often interweave - many natural phenomena don't just exhibit one constant but rather a combination of them working together. 
