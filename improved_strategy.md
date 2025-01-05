@@ -4,25 +4,37 @@ Okay, here's a comprehensive, step-by-step plan for building your platform, focu
 
 ```mermaid
 graph LR
-    A[Client Web/App] --> B(API Gateway Flask)
-    B --> C{Authentication/Authorization}
-    C -- JWT --> B
-    B --> D[Model Registration Service]
-    B --> E[Subscription Service]
-    B --> F[Prediction Retrieval Service]
-    D --> G[Database PostgreSQL]
-    E --> G
-    F --> G
-    D --> H[Message Broker Redis]
-    H --> I[Model Execution Service]
-    I --> J[Docker Container Sandboxed Model]
-    J --> G
-    J -- MessagePack --> I
-    G -- SQL --> J
-    I -- MessagePack --> F
+    A["Client (Web/App)"] --> B["API Gateway (Flask)"];
+    B --> C{"Authentication/Authorization"};
+    C -- JWT --> B;
+    B --> D["Model Registration Service"];
+    B --> E["Subscription Service"];
+    B --> F["Prediction Retrieval Service"];
+    D --> G["Database (PostgreSQL)"];
+    E --> G;
+    F --> G;
+    D --> H["Message Broker (Redis)"];
+    H --> I["Model Execution Service"];
+    I --> J["Docker Container (Sandboxed Model)"];
+    J --> G;
+    J -- MessagePack --> I;
+    G -- SQL --> J;
+    I -- MessagePack --> F;
 
-    subgraph Data_Flow
-        K[Client Request] -->|JSON| B
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#ccf,stroke:#333,stroke-width:2px
+    style C fill:#ccf,stroke:#333,stroke-width:2px
+    style D fill:#cfc,stroke:#333,stroke-width:2px
+    style E fill:#cfc,stroke:#333,stroke-width:2px
+    style F fill:#cfc,stroke:#333,stroke-width:2px
+    style G fill:#fcc,stroke:#333,stroke-width:2px
+    style H fill:#ffc,stroke:#333,stroke-width:2px
+    style I fill:#ffc,stroke:#333,stroke-width:2px
+    style J fill:#cff,stroke:#333,stroke-width:2px
+
+    subgraph "Data Flow"
+        direction LR
+        K["Client Request (JSON)"] -->|JSON| B
         B -->|JSON| D
         B -->|JSON| E
         B -->|JSON| F
@@ -36,22 +48,28 @@ graph LR
         B -->|JSON| A
     end
 
-    subgraph Request_Response
-        L[Registration Request] --> D
-        M[Registration Response] --> B
-        N[Subscription Request] --> E
-        O[Subscription Response] --> B
-        P[Prediction Request] --> F
-        Q[Prediction Response] --> B
+    subgraph "Request/Response Examples"
+        direction LR
+        L["Model Registration Request (JSON)"] -- "{'model_name': 'my_model', 'code': 'base64_encoded_code', 'version': '1.0'}" --> D
+        M["Model Registration Response (JSON)"] -- "{'model_id': 'uuid', 'status': 'registered'}" --> B
+        N["Subscription Request (JSON)"] -- "{'user_id': 'uuid', 'model_id': 'uuid'}" --> E
+        O["Subscription Response (JSON)"] -- "{'subscription_id': 'uuid', 'status': 'active'}" --> B
+        P["Prediction Request (JSON)"] -- "{'model_id': 'uuid', 'start_time': 'timestamp', 'end_time': 'timestamp'}" --> F
+        Q["Prediction Response (JSON)"] -- "{'predictions': [{'timestamp': 'timestamp', 'value': 1.23}, ...]}" --> B
+        R["Task Queue Message (JSON)"] -- "{'task': 'execute_model', 'model_id': 'uuid', 'data_id': 'uuid'}" --> H
+        S["Model Data Request (SQL)"] -- "SELECT * FROM data WHERE id = 'data_id'" --> G
+        T["Model Data Response (CSV)"] -- "timestamp,value\n2025-01-04 23:00:00,1.23\n..." --> J
+        U["Model Prediction (MessagePack)"] -- "b'\\x82\\xa9timestamp\\xd9\\x182025-01-04 23:00:00\\xa5value\\xcb?\\xf3\\xae\\x14z\\xe1O\\x9e'" --> I
     end
 
-    subgraph Async_Flow
-        V[API Request] -->|Queue| H
-        H -->|Message| I
-        I -->|Execute| J
-        J -->|Return| I
-        I -->|Store| G
-        G -->|Return| F
+    subgraph "Asynchronous Task Flow"
+        direction LR
+        V["API Request"] -->|Enqueue Task| H
+        H -->|Task Message| I
+        I -->|Execute Model| J
+        J -->|Return Prediction| I
+        I -->|Store Prediction| G
+        G -->|Return Prediction| F
     end
 ```
 
