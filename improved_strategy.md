@@ -1,4 +1,4 @@
-```markdown
+
 # Project Architecture and Implementation Plan
 
 To build your platform for hosting and monetizing forecasting models, we'll design a modular, scalable architecture that leverages your existing skills and resources. Below is the overall architecture diagram, followed by detailed explanations of each component and a step-by-step implementation plan.
@@ -377,4 +377,3 @@ Runs the Signal Providers' code in isolation to ensure security and stability.
 ## Conclusion
 
 By following this modular and scalable design, you'll create a solid foundation for your platform. Start small by focusing on core functionalities, and gradually add features as needed. Remember to continually test and gather user feedback to improve the platform iteratively.
-```
