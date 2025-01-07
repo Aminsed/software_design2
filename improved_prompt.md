@@ -1,6 +1,8 @@
-I want to build a platform for software developers, quants, and traders to host their code and models, enabling them to monetize their work. Traders and others would be able to subscribe to these hosted models and forecasting code (written in Python) and pay a monthly fee. They can offer a trial period of up to a month for subscribers to evaluate the models.
+Project Overview:
 
-Once a model is online (meaning it is serving), it cannot be modified. However, it can be taken down and brought up as a new version to avoid fraud. These codes and models will not have access to the internet; they can only query our database to create forecasts, relying solely on technical data.
+I want to build a platform for software developers, quants, and traders to host their code and models, enabling them to monetize their work. Traders and other users would be able to subscribe to these hosted models and forecasting code (written in Python) and pay a monthly fee. Signal providers can offer a trial period of up to one month for subscribers to evaluate the models.
+
+Once a model is online (i.e., serving), it cannot be modified. However, it can be taken down and brought up as a new version to prevent fraud. These codes and models will not have access to the internet; they can only query our database to create forecasts, relying solely on technical data.
 
 About Me:
 
@@ -15,7 +17,7 @@ The UI is extremely important for end-users (subscribers) to:
 See each model's performance at a glance.
 Playback predictions over time.
 Predictions should be served at a minimum resolution of every 1 hour.
-The platform should focus on API build initially.
+The platform should focus initially on API build.
 Platform Users:
 
 Signal Providers:
@@ -40,8 +42,10 @@ The setup should comfortably handle the first 100 signal providers and subscribe
 Emphasize modularity and interface design for each module.
 Signal Provider Journey:
 
-Login: Access the platform with their credentials.
-Dashboard: Click on the "Signals" button and select "My Signals" to view a list of their signals with filtering options.
+Login:
+Access the platform with their credentials.
+Dashboard:
+Click on the "Signals" button and select "My Signals" to view a list of their signals with filtering options.
 Create Signal:
 Click on "Create Signal."
 Select runtime environment (Python, R, etc.) and version.
@@ -69,4 +73,4 @@ Additional Notes:
 
 Ensure every instruction is as clear as possible.
 The initial base architecture is crucial for scalability and adding functionality easily.
-The design should endorse modularity.
+The design should emphasize modularity.
