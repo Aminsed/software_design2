@@ -6,35 +6,35 @@ Use the “Markdown → Mermaid” format to render the diagram.
 ```mermaid
 flowchart LR
     subgraph Clients
-        Provider[Signal Provider (UI or API)] --> FE[Front-end]
-        Subscriber[Subscriber (UI or API)] --> FE[Front-end]
+        Provider["Signal Provider (UI or API)"] --> FE["Front-end"]
+        Subscriber["Subscriber (UI or API)"] --> FE["Front-end"]
     end
     
-    FE --(HTTPS/REST)--> Gateway[API Gateway / Main FastAPI App]
-    Gateway --> Auth[Authentication & Authorization Module]
-    Gateway --> Payment[Payment & Subscription Module]
-    Gateway --> ModelRegistry[Model Registry & Versioning DB]
-    Gateway --> DataInterface[Data Access Layer (Restricted)]
-    Gateway --> Scheduler[Scheduler / Queue Manager]
-    Gateway --> ContainerOrchestrator[Container Orchestrator (Docker/K8s)]
+    FE --|HTTPS/REST|--> Gateway["API Gateway / Main FastAPI App"]
+    Gateway --> Auth["Authentication & Authorization Module"]
+    Gateway --> Payment["Payment & Subscription Module"]
+    Gateway --> ModelRegistry["Model Registry & Versioning DB"]
+    Gateway --> DataInterface["Data Access Layer (Restricted)"]
+    Gateway --> Scheduler["Scheduler / Queue Manager"]
+    Gateway --> ContainerOrchestrator["Container Orchestrator (Docker/K8s)"]
     
     subgraph ContainerOrchestration
-        ContainerOrchestrator --> C1[Container: Model #1]
-        ContainerOrchestrator --> C2[Container: Model #N]
-        C1-- No internet access --> DataDB[(Historical Data)]
-        C2-- No internet access --> DataDB[(Historical Data)]
+        ContainerOrchestrator --> C1["Container: Model #1"]
+        ContainerOrchestrator --> C2["Container: Model #N"]
+        C1 -- "No internet access" --> DataDB["Historical Data"]
+        C2 -- "No internet access" --> DataDB["Historical Data"]
     end
 
-    Scheduler --> Queue[Task Queue (e.g., Celery/RQ/RabbitMQ)]
+    Scheduler --> Queue["Task Queue (e.g., Celery/RQ/RabbitMQ)"]
     Queue --> C1
     Queue --> C2
     
-    C1 --> ForecastStore[Forecast Results DB]
-    C2 --> ForecastStore[Forecast Results DB]
+    C1 --> ForecastStore["Forecast Results DB"]
+    C2 --> ForecastStore["Forecast Results DB"]
     
     FE <--> ForecastStore
     Payment <--> Auth
-    Payment --> BillingDB[(Billing/Subscription Records)]
+    Payment --> BillingDB["Billing/Subscription Records"]
 ```
 
 ### Architectural Components, Explained
