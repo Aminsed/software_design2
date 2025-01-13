@@ -61,13 +61,13 @@ Below is a conceptual flow of how a matrix multiplication call (and the device i
 
 ```mermaid
 flowchart TB
-    subgraph Python Side
-        A[mycuda.core.py<br>(matmul, add)] --> B[_mycuda extension<br>(bindings.cpp)]
+    subgraph "Python Side"
+        A["mycuda.core.py\n(matmul, add)"] --> B["_mycuda extension\n(bindings.cpp)"]
     end
 
-    subgraph Native / CUDA Side
-        B --> C[detect_device.cu<br>detect_and_set_device()]
-        B --> D[kernels.cu<br>(matmul_cuda(), add_cuda())]
+    subgraph "Native / CUDA Side"
+        B --> C["detect_device.cu\n(detect_and_set_device())"]
+        B --> D["kernels.cu\n(matmul_cuda(), add_cuda())"]
     end
 
     C --> E[GPU Device Selection]
